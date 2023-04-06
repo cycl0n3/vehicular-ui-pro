@@ -26,11 +26,11 @@ class AdminPage extends Component {
   }
 
   componentDidMount() {
-    const Auth = this.context
-    const user = Auth.getUser()
-    const isAdmin = user.data.rol[0] === 'ADMIN'
-    this.setState({ isAdmin })
-
+    const Auth = this.context;
+    const user = Auth.getUser();
+    const isAdmin = user.data.rol[0] === 'ADMIN';
+    
+    this.setState({ isAdmin });
     this.handleGetUsers()
     this.handleGetOrders()
   }
@@ -40,10 +40,11 @@ class AdminPage extends Component {
   }
 
   handleGetUsers = () => {
-    const Auth = this.context
-    const user = Auth.getUser()
+    const Auth = this.context;
+    const user = Auth.getUser();
 
-    this.setState({ isUsersLoading: true })
+    this.setState({ isUsersLoading: true });
+
     orderApi.getUsers(user)
       .then(response => {
         this.setState({ users: response.data })
@@ -57,8 +58,8 @@ class AdminPage extends Component {
   }
 
   handleDeleteUser = (username) => {
-    const Auth = this.context
-    const user = Auth.getUser()
+    const Auth = this.context;
+    const user = Auth.getUser();
 
     orderApi.deleteUser(user, username)
       .then(() => {
@@ -70,10 +71,11 @@ class AdminPage extends Component {
   }
 
   handleSearchUser = () => {
-    const Auth = this.context
-    const user = Auth.getUser()
+    const Auth = this.context;
+    const user = Auth.getUser();
 
-    const username = this.state.userUsernameSearch
+    const username = this.state.userUsernameSearch;
+
     orderApi.getUsers(user, username)
       .then(response => {
         const data = response.data
@@ -87,10 +89,11 @@ class AdminPage extends Component {
   }
 
   handleGetOrders = () => {
-    const Auth = this.context
-    const user = Auth.getUser()
+    const Auth = this.context;
+    const user = Auth.getUser();
 
-    this.setState({ isOrdersLoading: true })
+    this.setState({ isOrdersLoading: true });
+
     orderApi.getOrders(user)
       .then(response => {
         this.setState({ orders: response.data })
@@ -104,8 +107,8 @@ class AdminPage extends Component {
   }
 
   handleDeleteOrder = (isbn) => {
-    const Auth = this.context
-    const user = Auth.getUser()
+    const Auth = this.context;
+    const user = Auth.getUser();
 
     orderApi.deleteOrder(user, isbn)
       .then(() => {
@@ -117,16 +120,18 @@ class AdminPage extends Component {
   }
 
   handleCreateOrder = () => {
-    const Auth = this.context
-    const user = Auth.getUser()
+    const Auth = this.context;
+    const user = Auth.getUser();
 
-    let { orderDescription } = this.state
+    let { orderDescription } = this.state;
+
     orderDescription = orderDescription.trim()
     if (!orderDescription) {
       return
     }
 
-    const order = { description: orderDescription }
+    const order = { description: orderDescription };
+
     orderApi.createOrder(user, order)
       .then(() => {
         this.handleGetOrders()
@@ -138,10 +143,11 @@ class AdminPage extends Component {
   }
 
   handleSearchOrder = () => {
-    const Auth = this.context
-    const user = Auth.getUser()
+    const Auth = this.context;
+    const user = Auth.getUser();
 
-    const text = this.state.orderTextSearch
+    const text = this.state.orderTextSearch;
+    
     orderApi.getOrders(user, text)
       .then(response => {
         const orders = response.data

@@ -18,19 +18,21 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    const Auth = this.context
-    const isLoggedIn = Auth.userIsAuthenticated()
-    this.setState({ isLoggedIn })
+    const Auth = this.context;
+    const isLoggedIn = Auth.userIsAuthenticated();
+
+    this.setState({ isLoggedIn });
   }
 
   handleInputChange = (e, {name, value}) => {
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const { username, password } = this.state
+    const { username, password } = this.state;
+
     if (!(username && password)) {
       this.setState({ isError: true })
       return
@@ -38,28 +40,29 @@ class Login extends Component {
 
     orderApi.authenticate(username, password)
       .then(response => {
-        const { accessToken } = response.data
-        const data = parseJwt(accessToken)
-        const user = { data, accessToken }
+        const { accessToken } = response.data;
+        const data = parseJwt(accessToken);
+        const user = { data, accessToken };
 
-        const Auth = this.context
-        Auth.userLogin(user)
+        const Auth = this.context;
+        Auth.userLogin(user);
 
         this.setState({
           username: '',
           password: '',
           isLoggedIn: true,
           isError: false
-        })
+        });
       })
       .catch(error => {
-        handleLogError(error)
-        this.setState({ isError: true })
+        handleLogError(error);
+        this.setState({ isError: true });
       })
   }
 
   render() {
-    const { isLoggedIn, isError } = this.state
+    const { isLoggedIn, isError } = this.state;
+    
     if (isLoggedIn) {
       return <Navigate to={'/'} />
     } else {

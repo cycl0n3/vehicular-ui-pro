@@ -4,7 +4,8 @@ import { Grid, Form, Button, Input, Table } from 'semantic-ui-react';
 import OrderForm from '../misc/OrderForm';
 
 function OrderTable({ orders, orderDescription, orderTextSearch, handleInputChange, handleCreateOrder, handleDeleteOrder, handleSearchOrder }) {
-  let orderList
+  let orderList;
+  
   if (orders.length === 0) {
     orderList = (
       <Table.Row key='no-order'>

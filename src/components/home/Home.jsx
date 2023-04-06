@@ -12,24 +12,26 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true });
+
     try {
-      let response = await orderApi.numberOfUsers()
-      const numberOfUsers = response.data
+      let response = await orderApi.numberOfUsers();
+      const numberOfUsers = response.data;
 
-      response = await orderApi.numberOfOrders()
-      const numberOfOrders = response.data
+      response = await orderApi.numberOfOrders();
+      const numberOfOrders = response.data;
 
-      this.setState({ numberOfUsers, numberOfOrders })
+      this.setState({ numberOfUsers, numberOfOrders });
     } catch (error) {
-      handleLogError(error)
+      handleLogError(error);
     } finally {
-      this.setState({ isLoading: false })
+      this.setState({ isLoading: false });
     }
   }
 
   render() {
-    const { isLoading } = this.state
+    const { isLoading } = this.state;
+
     if (isLoading) {
       return (
         <Segment basic style={{ marginTop: window.innerHeight / 2 }}>
@@ -39,7 +41,8 @@ class Home extends Component {
         </Segment>
       )
     } else {
-      const { numberOfUsers, numberOfOrders } = this.state
+      const { numberOfUsers, numberOfOrders } = this.state;
+
       return (
         <Container text>
           <Grid stackable columns={2}>

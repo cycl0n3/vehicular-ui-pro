@@ -8,43 +8,46 @@ class AuthProvider extends Component {
   }
 
   componentDidMount() {
-    const user = localStorage.getItem('user')
-    this.setState({ user })
+    const user = localStorage.getItem('user');
+    this.setState({ user });
   }
 
   getUser = () => {
-    return JSON.parse(localStorage.getItem('user'))
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   userIsAuthenticated = () => {
-    let user = localStorage.getItem('user')
+    let user = localStorage.getItem('user');
+
     if (!user) {
-      return false
+      return false;
     }
-    user = JSON.parse(user)
+
+    user = JSON.parse(user);
     
     // if user has token expired, logout user
     if (Date.now() > user.data.exp * 1000) {
-      this.userLogout()
-      return false
+      this.userLogout();
+      return false;
     }
-    return true
+
+    return true;
   }
 
   userLogin = user => {
-    localStorage.setItem('user', JSON.stringify(user))
-    this.setState({ user })
+    localStorage.setItem('user', JSON.stringify(user));
+    this.setState({ user });
   }
 
   userLogout = () => {
-    localStorage.removeItem('user')
-    this.setState({ user: null })
+    localStorage.removeItem('user');
+    this.setState({ user: null });
   }
 
   render() {
-    const { children } = this.props
-    const { user } = this.state
-    const { getUser, userIsAuthenticated, userLogin, userLogout } = this
+    const { children } = this.props;
+    const { user } = this.state;
+    const { getUser, userIsAuthenticated, userLogin, userLogout } = this;
 
     return (
       <AuthContext.Provider value={{ user, getUser, userIsAuthenticated, userLogin, userLogout, }}>
@@ -54,7 +57,7 @@ class AuthProvider extends Component {
   }
 }
 
-export default AuthContext
+export default AuthContext;
 
 export function useAuth() {
   return useContext(AuthContext)

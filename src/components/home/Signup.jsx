@@ -8,7 +8,7 @@ import { orderApi } from '../misc/OrderApi';
 import { parseJwt, handleLogError } from '../misc/Helpers';
 
 class Signup extends Component {
-  static contextType = AuthContext
+  static contextType = AuthContext;
 
   state = {
     username: '',
@@ -21,28 +21,31 @@ class Signup extends Component {
   }
 
   componentDidMount() {
-    const Auth = this.context
-    const isLoggedIn = Auth.userIsAuthenticated()
+    const Auth = this.context;
+    const isLoggedIn = Auth.userIsAuthenticated();
+
     this.setState({ isLoggedIn })
   }
 
   handleInputChange = (e, {name, value}) => {
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const { username, password, name, email } = this.state
+    const { username, password, name, email } = this.state;
+
     if (!(username && password && name && email)) {
       this.setState({
         isError: true,
         errorMessage: 'Please, inform all fields!'
       })
-      return
+      return;
     }
 
-    const user = { username, password, name, email }
+    const user = { username, password, name, email };
+
     orderApi.signup(user)
       .then(response => {
         const { accessToken } = response.data
@@ -79,7 +82,8 @@ class Signup extends Component {
   }
 
   render() {
-    const { isLoggedIn, isError, errorMessage } = this.state
+    const { isLoggedIn, isError, errorMessage } = this.state;
+    
     if (isLoggedIn) {
       return <Navigate to='/' />
     } else {

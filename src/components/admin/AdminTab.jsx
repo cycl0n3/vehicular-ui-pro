@@ -5,9 +5,9 @@ import UserTable from './UserTable';
 import OrderTable from './OrderTable';
 
 function AdminTab(props) {
-  const { handleInputChange } = props
-  const { isUsersLoading, users, userUsernameSearch, handleDeleteUser, handleSearchUser } = props
-  const { isOrdersLoading, orders, orderDescription, orderTextSearch, handleCreateOrder, handleDeleteOrder, handleSearchOrder } = props
+  const { handleInputChange } = props;
+  const { isUsersLoading, users, userUsernameSearch, handleDeleteUser, handleSearchUser } = props;
+  const { isOrdersLoading, orders, orderDescription, orderTextSearch, handleCreateOrder, handleDeleteOrder, handleSearchOrder } = props;
 
   const panes = [
     {
