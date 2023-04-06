@@ -1,6 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Container, Menu } from 'semantic-ui-react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Menu } from 'semantic-ui-react';
+
 import { useAuth } from '../context/AuthContext'
 
 function Navbar() {
@@ -51,4 +52,5 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
+

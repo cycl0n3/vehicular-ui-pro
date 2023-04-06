@@ -1,7 +1,8 @@
-import React from 'react'
-import { Tab } from 'semantic-ui-react'
-import UserTable from './UserTable'
-import OrderTable from './OrderTable'
+import React from 'react';
+import { Tab } from 'semantic-ui-react';
+
+import UserTable from './UserTable';
+import OrderTable from './OrderTable';
 
 function AdminTab(props) {
   const { handleInputChange } = props
@@ -46,4 +47,4 @@ function AdminTab(props) {
   )
 }
 
-export default AdminTab
+export default AdminTab;

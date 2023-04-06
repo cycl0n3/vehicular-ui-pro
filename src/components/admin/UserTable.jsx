@@ -1,5 +1,5 @@
-import React from 'react'
-import { Form, Button, Input, Table } from 'semantic-ui-react'
+import React from 'react';
+import { Form, Button, Input, Table } from 'semantic-ui-react';
 
 function UserTable({ users, userUsernameSearch, handleInputChange, handleDeleteUser, handleSearchUser }) {
   let userList
@@ -63,4 +63,4 @@ function UserTable({ users, userUsernameSearch, handleInputChange, handleDeleteU
   )
 }
 
-export default UserTable
+export default UserTable;

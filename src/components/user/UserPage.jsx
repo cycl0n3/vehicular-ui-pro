@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
-import { Navigate } from 'react-router-dom'
-import { Container } from 'semantic-ui-react'
-import OrderTable from './OrderTable'
-import AuthContext from '../context/AuthContext'
-import { orderApi } from '../misc/OrderApi'
-import { handleLogError } from '../misc/Helpers'
+import React, { Component } from 'react';
+import { Navigate } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
+
+import OrderTable from './OrderTable';
+import AuthContext from '../context/AuthContext';
+
+import { orderApi } from '../misc/OrderApi';
+import { handleLogError } from '../misc/Helpers';
 
 class UserPage extends Component {
   static contextType = AuthContext
@@ -87,4 +89,4 @@ class UserPage extends Component {
   }
 }
 
-export default UserPage
+export default UserPage;

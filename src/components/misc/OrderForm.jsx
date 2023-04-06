@@ -1,8 +1,9 @@
-import React from 'react'
-import { Form, Button, Icon } from 'semantic-ui-react'
+import React from 'react';
+import { Form, Button, Icon } from 'semantic-ui-react';
 
 function OrderForm({ orderDescription, handleInputChange, handleCreateOrder }) {
-  const createBtnDisabled = orderDescription.trim() === ''
+  const createBtnDisabled = orderDescription.trim() === '';
+
   return (
     <Form onSubmit={handleCreateOrder}>
       <Form.Group>
@@ -20,4 +21,4 @@ function OrderForm({ orderDescription, handleInputChange, handleCreateOrder }) {
   )
 }
 
-export default OrderForm
+export default OrderForm;

@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-import { NavLink, Navigate } from 'react-router-dom'
-import { Button, Form, Grid, Segment, Message } from 'semantic-ui-react'
-import AuthContext from '../context/AuthContext'
-import { orderApi } from '../misc/OrderApi'
-import { parseJwt, handleLogError } from '../misc/Helpers'
+import React, { Component } from 'react';
+import { NavLink, Navigate } from 'react-router-dom';
+import { Button, Form, Grid, Segment, Message } from 'semantic-ui-react';
+
+import AuthContext from '../context/AuthContext';
+
+import { orderApi } from '../misc/OrderApi';
+import { parseJwt, handleLogError } from '../misc/Helpers';
 
 class Signup extends Component {
   static contextType = AuthContext
@@ -134,4 +136,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+export default Signup;

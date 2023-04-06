@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import { Statistic, Icon, Grid, Container, Image, Segment, Dimmer, Loader } from 'semantic-ui-react'
-import { orderApi } from '../misc/OrderApi'
-import { handleLogError } from '../misc/Helpers'
+import React, { Component } from 'react';
+import { Statistic, Icon, Grid, Container, Image, Segment, Dimmer, Loader } from 'semantic-ui-react';
+
+import { orderApi } from '../misc/OrderApi';
+import { handleLogError } from '../misc/Helpers';
 
 class Home extends Component {
   state = {
@@ -70,4 +71,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default Home;

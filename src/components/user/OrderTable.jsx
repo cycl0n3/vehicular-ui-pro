@@ -1,6 +1,7 @@
-import React from 'react'
-import { Grid, Table, Header, Icon } from 'semantic-ui-react'
-import OrderForm from '../misc/OrderForm'
+import React from 'react';
+import { Grid, Table, Header, Icon } from 'semantic-ui-react';
+
+import OrderForm from '../misc/OrderForm';
 
 function OrderTable({ orders, orderDescription, handleInputChange, handleCreateOrder }) {
   let orderList
@@ -58,4 +59,4 @@ function OrderTable({ orders, orderDescription, handleInputChange, handleCreateO
   )
 }
 
-export default OrderTable
+export default OrderTable;
